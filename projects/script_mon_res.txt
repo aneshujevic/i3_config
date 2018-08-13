@@ -1,0 +1,27 @@
+#custom resolution for 1080p                                            
+xrandr --newmode "default1"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync   
+xrandr --addmode DVI-1 "default1" 
+
+# dual screen ?                                                            
+xrandr --output DVI-1 --primary --mode "default1"  --output DVI-0 --auto --right-of DVI-1 
+
+#lock script
+#!/usr/bin/python                                                               
+from os import system                                                                
+import sys
+
+def main():
+    arguments = sys.argv
+    if len(arguments) == 1:
+        system('~/.config/i3/lock_script.sh')
+    elif arguments[1] == 'suspend':
+        system('~/.config/i3/lock_script.sh && systemctl suspend')
+    elif arguments[1] == 'hibernate':
+        system('~/.config/i3/lock_script.sh && systemctl hibernate')
+
+if __name__ == "__main__":
+    main()
+
+# lock_script.sh
+#!/bin/bash
+i3lock -f -e -i "/home/bluemoon/projects/i3pozadina/pozadina.png" -t -p win|default
