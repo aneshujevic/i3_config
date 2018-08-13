@@ -9,13 +9,6 @@ bindcode 123 	  	exec 	amixer -D pulse sset Master 5%+
 # lock screen 
 exec --no-startup-id xautolock -time 13 -locker '~/.config/i3/lock_script.sh'
 
-# custom resolution for 1080p
-#exec --no-startup-id xrandr --newmode "default1"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-#exec --no-startup-id xrandr --addmode DVI-1 "default1"
-
-# dual screen ?
-#exec --no-startup-id xrandr --output DVI-1 --primary --mode "default1"  --output DVI-0 --auto --right-of DVI-1
-
 # change workspace order
 workspace 1 output DVI-1
 workspace 2 output DVI-0
